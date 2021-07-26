@@ -254,15 +254,9 @@ section#habilidades div span#javascript{
     text-align: center;
     padding: .3rem;
     border-radius: 1rem;
+    width: 20%;
  }
 
- section#habilidades div span#flask{
-   background-color: #3359ec;
-   color: #fff;
-   text-align: center;
-   padding: .3rem;
-   border-radius: 1rem;
-}
 
 section#habilidades div span#comunicacao{
    background-color: #3359ec;
