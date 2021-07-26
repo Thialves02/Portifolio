@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: 'Noto Sans JP', sans-serif, Arial;
+}
+
+html, body{
+   scroll-behavior: smooth;
+}
+
+/* Comentario */
+nav{
+   background-color: #3359ec;
+   font-weight: 500;
+   position: fixed;
+   width: 100%;
+}
+
+nav ul{
+   list-style: none;
+   display: flex;
+   justify-content: center;
+}
+
+nav ul li{
+   padding: 1rem;
+}
+
+nav ul li a{
+   text-decoration: none;
+   color: #fff;
+   transition:.5s;
+}
+
+nav ul li a:hover{
+   color: #00125a;
+}
+
+#btnMenu {
+   margin: 0 auto;
+   display:none;
+}
+
+header{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 3rem;
+}
+
+header div#img-rocket {
+   display: flex;
+   justify-content: center;
+}
+
+header div p{
+   font-size: 2rem;
+   font-weight: 700;
+   color: #3359ec;
+}
+
+header div span{
+   font-size: 1.3rem;
+   font-weight: 500;
+   color: #0066ff;
+}
+
+header div#img-rocket img{
+   width: 60%;
+}
+
+section#sobre-mim{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 4rem;
+   background-color: #3359ec;
+}
+
+
+section#sobre-mim div img{
+   width: 60%;
+   border-radius: 50%;
+   display: block;
+   margin: auto;
+}
+
+section#sobre-mim div p{
+   font-size: 1.1rem;
+   text-align: justify;
+   color: #fff;
+   line-height: 2.5rem;
+}
+
+section#projetos{
+   display: flex; /* Aciona o flex-box e coloca um item do lado do outro automaticamente */
+   justify-content: center; /* Alinha os itens horizontalmente */
+   ; /* Alinha os itens verticalmente */
+   padding: 3rem; /* Espaçamento interno nos elementos */
+   flex-wrap: wrap;
+}
+
+section#projetos div{
+   width: 20rem;
+}
+
+section#projetos div img{
+   /* Essa duas linhas, alinham o elemento(tag) centralmente */
+   display: block;
+   margin: auto;
+   width: 300px;
+   height:200px;
+   border-radius: 15px;
+}
+
+section#projetos div h2{
+   text-align: center;
+   padding: 1rem;
+}
+
+section#projetos div p{
+   text-align: justify;
+}
+
+section#projetos div{
+   padding: 2rem;
+}
+
+section#projetos div button{
+   border: 1px solid #3359ec;
+   background-color: #fff;
+   color: #3359ec;
+   padding: 1rem;
+   font-size: 0.8rem;
+   font-weight: 600;
+   border-radius: .5rem;
+   display: block;
+   margin: auto;
+   margin-top: 2rem;
+   cursor: pointer;
+   transition: .6s ease-out;
+}
+
+section#projetos div a{
+   text-decoration: none
+}
+
+section#projetos div button:hover{
+   background-color: #3359ec;
+   color: #fff;
+}
+
+section#habilidades{
+   padding: 3rem 10rem 3rem 10rem;
+   background-color: #d7e7ff;
+}
+
+section#habilidades h2{
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+}
+
+section#habilidades h3{
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+   margin-top:100px;
+}
+
+section#habilidades p{
+   padding: 1rem;
+   font-size: 1.3rem;
+   font-weight: 600;
+}
+
+section#habilidades div{
+   display: flex;
+   border: 1px solid #3359ec;
+   border-radius: 1rem;
+}
+
+section#habilidades div span#python{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 60%;
+   animation-name: barra_python;
+   animation-duration:3s;
+}
+
+section#habilidades div span#html{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 50%;
+   animation-name: barra_html_css;
+   animation-duration:3s;
+}
+
+section#habilidades div span#css{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 50%;
+   animation-name: barra_html_css;
+   animation-duration:3s;
+}
+
+section#habilidades div span#bootstrap{
+    background-color: #3359ec;
+    color: #fff;
+    text-align: center;
+    padding: .3rem;
+    border-radius: 1rem;
+    width: 30%;
+    animation-name: barra_bootstrap_js;
+    animation-duration:3s;
+ }
+
+section#habilidades div span#javascript{
+    background-color: #3359ec;
+    color: #fff;
+    text-align: center;
+    padding: .3rem;
+    border-radius: 1rem;
+    width: 30%;
+    animation-name: barra_bootstrap_js;
+    animation-duration:3s;
+ }
+
+ section#habilidades div span#mysql{
+    background-color: #3359ec;
+    color: #fff;
+    text-align: center;
+    padding: .3rem;
+    border-radius: 1rem;
+    width: 20%;
+    animation-name: barra_mysql;
+    animation-duration:3s;
+ }
+
+ section#habilidades div span#flask{
+    background-color: #3359ec;
+    color: #fff;
+    text-align: center;
+    padding: .3rem;
+    border-radius: 1rem;
+ }
+
+ section#habilidades div span#flask{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+}
+
+section#habilidades div span#comunicacao{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 70%;
+}
+
+section#habilidades div span#grupo{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 80%;
+}
+
+section#habilidades div span#organizacao{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 85%;
+}
+
+section#habilidades div span#ingles{
+   background-color: #3359ec;
+   color: #fff;
+   text-align: center;
+   padding: .3rem;
+   border-radius: 1rem;
+   width: 60%;
+}
+
+
+/* Seção de contato */
+
+section#contato {
+   padding: 3rem 10rem 3rem 10rem; /* Sentido horario: Cima, direita , baixo, esquerda */
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap; /* Quebra o conteúdo para a próxima linha caso não haja mais espaço para esse conteúdo na tela */
+}
+
+section#contato div#redes{
+   width: 100%; /* Faz com que a div rede ocupe 100% do espaço na tela */
+}
+
+section#contato div#redes h3{
+   text-align: center; /* Alinhamento centralizado do texto */
+   font-size: 2.5rem; /* Tamanho da fonte do elemento */
+   margin-bottom: 2rem; /* Margem para baixo do elemento */
+}
+
+section#contato div#redes div#icons{
+   display: flex;
+   justify-content: center;
+}
+
+section#contato div#redes div#icons a{
+   text-decoration: none; /* Tira o sublinhado e toda decoração de texto do link */
+   color: #0066ff;
+   font-size: 4rem;
+   padding: 2rem;
+   transition: all .4s ease-out; /*  Suavisa a transição de cores no hover */
+}
+
+/* o :hover serve para quando passar o mouse por cima do elemento fazer algo */
+section#contato div#redes div#icons a:hover{
+   color: #71aaff;
+}
+
+section#contato div#redes div#icons a i{
+   transition: all .4s ease-out;
+}
+
+/* O atributo transform só muda um elemento que aparece efetivamente na tela, por isso colocamos ele na tag i, e não na tag a */
+section#contato div#redes div#icons a i:hover{
+   transform: scale(1.2);
+}
+
+section#contato div#form{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+section#contato div#form h3{
+   width: 100%;
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+}
+
+section#contato div#form form{
+   width: 50%;
+}
+
+/* A virgula serve para estilizar dois elementos ao mesmo tempo */
+section#contato div#form form input, textarea{
+   width: 100%;
+   padding: .5rem;
+   font-size: 1.2rem;
+   border: 1px solid #ccc;
+   margin-top: .5rem;
+   margin-bottom: 1rem;
+   outline: none; /* Retira a borda do input quando clico dentro dele */
+}
+
+section#contato div#form form label{
+   font-size: 1.2rem;
+}
+
+section#contato div#form form button{
+   border: 1px solid #3359ec;
+   background-color: #fff;
+   color: #3359ec;
+   padding: 1rem;
+   font-size: 1rem;
+   font-weight: 600;
+   border-radius: .5rem;
+   display: block;
+   margin: auto;
+   cursor: pointer;
+   transition: .6s ease-out;
+   width: 40%;
+}
+
+section#contato div#form form button:hover{
+   background-color: #3359ec;
+   color: #fff;
+}
+footer div#rodape{
+   background-color: #3359ec;
+   color:rgb(255, 255, 255);
+}
+footer div#rodape h1{
+   display: block;
+   text-align: center;
+   font-size:1.2rem;
+   padding:1rem;
+   justify-content: center;
+}
+
+@keyframes barra_python{
+
+   from{
+      width:0
+   }
+
+   to{
+      width:60%;
+   }
+}
+
+@keyframes barra_html_css{
+
+   from{
+      width:0
+   }
+
+   to{
+      width:50%;
+   }
+}
+
+@keyframes barra_bootstrap_js{
+
+   from{
+      width:0
+   }
+
+   to{
+      width:30%;
+   }
+}
+
+@keyframes barra_mysql{
+
+   from{
+      width:0
+   }
+
+   to{
+      width:20%;
+   }
+}
+
+.flipswitch {
+   position: absolute;
+   width: 80px;
+   margin-top: 14px;
+   margin-left:90% ;
+ }
+ .flipswitch input[type=checkbox] {
+   display: none;
+ }
+ .flipswitch-label {
+   display: block;
+   overflow: hidden;
+   cursor: pointer;
+   border: 2px solid #999999;
+   border-radius: 50px;
+ }
+ .flipswitch-inner {
+   width: 200%;
+   margin-left: -100%;
+   transition: margin 0.3s ease-in 0s;
+ }
+ .flipswitch-inner:before, .flipswitch-inner:after {
+   float: left;
+   width: 50%;
+   height: 24px;
+   padding: 0;
+   line-height: 24px;
+   font-size: 18px;
+   color: white;
+   font-family: Trebuchet, Arial, sans-serif;
+   font-weight: bold;
+   box-sizing: border-box;
+ }
+ .flipswitch-inner:before {
+   content: "ON";
+   padding-left: 12px;
+   background-color: #000000;
+   color: #FFFFFF;
+ }
+ .flipswitch-inner:after {
+   content: "OFF";
+   padding-right: 12px;
+   background-color: #FFFFFF;
+   color: #000000;
+   text-align: right;
+ }
+
+ .flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+   margin-left: 0;
+ }
+ .flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+   right: 0;
+ }
+
+
+
+
+section#contato div#carregamento{
+   display: none; /* Deixa o display none para não aparecer até que você clique no botão enviar (ver JS) */
+   text-align: center;
+   flex-wrap: wrap;
+   margin-top: 3rem;
+ }
+ 
+ section#contato div#carregamento p{
+   color: #0066ff;
+   font-weight: 700;
+   font-size: 2rem;
+   width: 100%;
+   text-align:center;
+   margin-bottom: 2rem;
+ }
+ 
+ section#contato div#carregamento div#loader{
+   margin: 0 auto;
+   border: 13px solid #fff;
+   border-radius: 50%;
+   border-top: 13px solid #0066ff;
+   border-bottom: 13px solid #0066ff;
+   width: 80px;
+   height: 80px;
+   /* Anima o elemento div#loader criando a variável spin, em 2s de forma linear e infinita */
+   animation: spin 2s linear infinite;
+ }
+ 
+ /* Anima a variável spin do animation */
+ @keyframes spin {
+   0% {  /* Começa em 0% */
+     transform: rotate(0deg); /* Rotação do elemento no 0° */ 
+   } 
+   100% { /* Vai até 100% */
+     transform: rotate(360deg); /* Rotação do elemento em 360° */ 
+   }
+ }
+ 
+ /* Loader de carregamento */
+ 
+ footer p {
+   min-height: 4rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ footer hr {
+   width: 60%;
+   margin: auto;
+   border: 0.2px solid #3359ec;
+ }
+ 
+ footer a#thiCodeLink {
+   text-decoration: none;
+   color: #3359ec;
+ }
+ 
+ footer a#thiCodeLink:hover {
+   color: #ff01ed;
+ }
+ 
+ footer {
+   margin-top: 3rem;
+ }
+ 
+ @media only screen and (max-width: 375px){
+   header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 5rem;
+   }
+   header div p{
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #3359ec;
+   }
+   header div span{
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0066ff;
+   }
+   header div#img-rocket{
+      width:300%;
+   }
+   header div#img-rocket img{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+   }
+   nav{
+      font-size:.6rem;
+   }
+   .flipswitch {
+      position: relative;
+      width: 0px;
+      margin-top: 14px;
+      
+    }
+    section#habilidades{
+      padding: 3rem 2rem;
+      background-color: #d7e7ff;
+   }
+   section#contato {
+      padding: 3rem 2rem; /* Sentido horario: Cima, direita , baixo, esquerda */
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Quebra o conteúdo para a próxima linha caso não haja mais espaço para esse conteúdo na tela */
+   }
+
+   section#contato div#form form{
+      width: 80%;
+   }
+
+   nav ul{
+      list-style: none;
+      display: block;
+      justify-content: center;
+      text-align: center;
+      padding:1rem 0rem;
+   }
+   nav{
+      background-color: #3359ec;
+      font-weight: 500;
+      position:static ;
+      width: 100%;
+   }
+   .flipswitch {
+      display:none;
+    }
+    #ul-id{
+       display:none;
+    }
+    #btnMenu {
+       margin: 0 auto;
+       display:block;
+    }
+  
+}
+
+ 
