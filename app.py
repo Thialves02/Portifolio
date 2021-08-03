@@ -8,11 +8,12 @@
 
 # Instalar o flask_mail no terminal com o seguinte código: pip install Flask-Mail
 
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message #Importa o Mail e o Message do flask_mail para facilitar o envio de emails
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.secret_key = 'blueedtech'
 
 # Configuração do envio de email.
 mail_settings = {
@@ -28,6 +29,9 @@ app.config.update(mail_settings) #atualizar as configurações do app com o dici
 mail = Mail(app) # atribuir a class Mail o app atual.
 
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cvdrutcf:zm5z1AitgmjTphT2Qv85LQTfhzDiPx5X@kesavan.db.elephantsql.com/cvdrutcf'
+db = SQLAlchemy(app) 
+
 #Classe para capturar as informações do formulário de forma mais organizada
 class Contato:
    def __init__ (self, nome, email, mensagem):
@@ -35,10 +39,44 @@ class Contato:
       self.email = email
       self.mensagem = mensagem
 
+class Projeto(db.Model): # Projetos herda metodos de db.Model
+   # Ciração das colunas na tabela projetos:
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(150), nullable=False)
+    imagem = db.Column(db.String(500), nullable=False)
+    descricao = db.Column(db.String(500), nullable=False)
+    link = db.Column(db.String(300), nullable=False)
+   # Construção dos atributos da classe Projeto, que receberão os dados a serem inseridos nas colunas criadas acima
+    def __init__(self, nome, imagem, descricao, link):
+        self.nome = nome
+        self.imagem = imagem
+        self.descricao = descricao
+        self.link = link
 # Rota principal apenas para renderizar a página principal.
 @app.route('/')
 def index():
    return render_template('index.html')
+
+@app.route('/adm') # Rota da administração
+def adm():
+   projetos = Projeto.query.all() # Busca todos os projetos no banco e coloca na veriável projetos, que se transforma em uma lista.
+   return render_template('adm.html', projetos=projetos)
+
+@app.route('/new', methods=['GET', 'POST'])
+def new():
+   if request.method == 'POST': # Verifica se o metodo recebido na requisição é POST
+      # cria o objeto projeto, adiconando os campos do form nele.
+      projeto = Projeto(
+         request.form['nome'],
+         request.form['imagem'],
+         request.form['descricao'],
+         request.form['link']
+      )
+      db.session.add(projeto) # Adiciona o objeto projeto no banco de dados.
+      db.session.commit()
+      flash('Confia') # Confirma a operação
+      return redirect('/adm') # Redireciona para a rota adm
+
 
 # Rota de envio de email.
 @app.route('/send', methods=['GET', 'POST'])
@@ -65,4 +103,5 @@ def send():
    return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
 
 if __name__ == '__main__':
+   db.create_all()
    app.run(debug=True)

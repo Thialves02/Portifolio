@@ -16,6 +16,7 @@ nav{
    font-weight: 500;
    position: fixed;
    width: 100%;
+   z-index: 1;
 }
 
 nav ul{
@@ -97,9 +98,9 @@ section#sobre-mim div p{
 section#projetos{
    display: flex; /* Aciona o flex-box e coloca um item do lado do outro automaticamente */
    justify-content: center; /* Alinha os itens horizontalmente */
-   ; /* Alinha os itens verticalmente */
    padding: 3rem; /* Espaçamento interno nos elementos */
    flex-wrap: wrap;
+   position:relative;
 }
 
 section#projetos div{
@@ -115,6 +116,18 @@ section#projetos div img{
    border-radius: 15px;
 }
 
+section#projetos a#config{
+   padding:1rem;
+   text-align:end;
+   text-decoration: none;
+   color: #0066ff;
+   font-size: 2rem;
+   transition: all .2s ease-out;
+   position: absolute;
+   top: 0;
+   right: 1rem;
+
+}
 section#projetos div h2{
    text-align: center;
    padding: 1rem;
@@ -254,7 +267,7 @@ section#habilidades div span#javascript{
     text-align: center;
     padding: .3rem;
     border-radius: 1rem;
-    width: 5%;
+    width: 10%;
  }
 
 
