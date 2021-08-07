@@ -8,7 +8,7 @@
 
 # Instalar o flask_mail no terminal com o seguinte código: pip install Flask-Mail
 
-from flask import Flask, render_template, redirect, request, flash
+from flask import Flask, render_template, redirect, request, flash, session
 from flask_mail import Mail, Message #Importa o Mail e o Message do flask_mail para facilitar o envio de emails
 from flask_sqlalchemy import SQLAlchemy
 
@@ -55,12 +55,17 @@ class Projeto(db.Model): # Projetos herda metodos de db.Model
 # Rota principal apenas para renderizar a página principal.
 @app.route('/')
 def index():
-   return render_template('index.html')
+   session['user_logado'] = None
+   projetos = Projeto.query.all()
+   return render_template('index.html',projetos=projetos)
 
 @app.route('/adm') # Rota da administração
 def adm():
+   if 'user_logado' not in session or session['user_logado'] == None:
+      flash('Faça o login antes de acessar essa rota!')
+      return redirect('/login')
    projetos = Projeto.query.all() # Busca todos os projetos no banco e coloca na veriável projetos, que se transforma em uma lista.
-   return render_template('adm.html', projetos=projetos)
+   return render_template('adm.html',projeto='', projetos=projetos)
 
 @app.route('/new', methods=['GET', 'POST'])
 def new():
@@ -74,8 +79,51 @@ def new():
       )
       db.session.add(projeto) # Adiciona o objeto projeto no banco de dados.
       db.session.commit()
-      flash('Confia') # Confirma a operação
+      flash('Projeto criado com sucesso!') # Confirma a operação
       return redirect('/adm') # Redireciona para a rota adm
+
+
+@app.route('/delete/<id>')
+def delete(id):
+   projeto = Projeto.query.get(id)
+   db.session.delete(projeto)
+   db.session.commit()
+   flash('Projeto apagado com sucesso')
+   return redirect('/adm')
+
+@app.route('/edit/<id>', methods=['GET', 'POST'])
+def edit(id):
+   projeto = Projeto.query.get(id) # Busca um projeto no banco através do id
+   projetos = Projeto.query.all()
+   if request.method == "POST": # Se a requisição for um POST, faça:
+      # Alteração de todos os campos de projetoEdit selecionado no get id
+      projeto.nome = request.form['nome']
+      projeto.descricao = request.form['descricao']
+      projeto.imagem = request.form['imagem']
+      projeto.link = request.form['link']
+      db.session.commit() # Confirma a operação
+      return redirect('/adm') #Redireciona para a rota adm
+   # Renderiza a página adm.html passando o projetoEdit (projeto a ser editado)
+   return render_template('adm.html', projeto=projeto, projetos=projetos) 
+@app.route('/<id>')
+def projeto_por_id(id):
+   projetoDel = Projeto.query.get(id)
+   return render_template('adm.html',projetoDel=projetoDel,projeto='')
+
+@app.route('/login')
+def login():
+   return render_template('login.html')
+
+@app.route('/auth',methods=['GET','POST'])
+def auth():
+   if request.form['senha'] == 'adm':
+      session['user_logado'] = 'logado'
+      flash('Login feito com sucesso!')
+      return redirect('/adm')
+   else:
+      flash('Erro no login, tente novamente!')
+      return redirect('/login')
+
 
 
 # Rota de envio de email.

@@ -64,19 +64,17 @@
         </div>
     </section>
     <section id="projetos" data-aos="fade-zoom-in" data-aos-duration="2000">
-        <a href="/adm" id="config">
+        <a href="/login" id="config">
             <i class="fa fa-cog" aria-hidden="true"></i>
         </a>
+        {% for p in projetos %}
         <div >
-            <img src="static/img/the_island.png">
-            <h2>The Island</h2>
-            <p>Com muito empenho e dedicação, eu e o Fabio Henrique De Oliveira concluimos nosso jogo para o módulo de
-                lógica de programação da Blue EdTech. O usuário tem a opção de escolher entre português e inglês no
-                inicio do jogo e também tem a opção de ver tutoriais. O jogo conta com diversos tipos de mortes
-                customizados e com um Easter Egg.</p>
-                <a href="https://github.com/Thialves02/The_Island" target="_blank"><button>Veja mais</button></a>
+            <img src="{{p.imagem}}">
+            <h2>{{p.nome}}</h2>
+            <p>{{p.descricao}}</p>
+                <a href="{{p.link}}" target="_blank">Veja mais</a>
         </div>
-        
+        {% endfor %}
     </section>
     <section id="habilidades">
         <h2>Hard Skills</h2>
