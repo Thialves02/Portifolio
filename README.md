@@ -18,6 +18,7 @@ The tools bellow were used on this project
 - [HTML]
 - [CSS]
 - [Python]
+- [Flask]
 
 ## :white_check_mark: Requirements ##
 
@@ -28,6 +29,9 @@ Before open the website , you need install [Git](https://git-scm.com) on your co
 ```bash
 #Install Pip
 https://pypi.org/project/pip/
+
+#Install Flask
+Open the CMD and type "pip install flask"
 
 #Clone this repository
 $ git clone https://github.com/Thialves02/Portifolio
